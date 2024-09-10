@@ -27,6 +27,6 @@ test:
 #
 # Similarly, if you deploy your application as a Docker container, you must
 # ensure the database is located in a persisted volume.
-production:
+production: # Modify this doesn't affect because heroku doesn't care about this file
   <<: *default
   # database: path/to/persistent/storage/production.sqlite3
