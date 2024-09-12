@@ -18,9 +18,33 @@ more_movies = [
   {:title => 'Nomadland', :rating => 'R',
     :release_date => '19-Feb-2021'},
   {:title => 'CODA', :rating => 'PG-13',
-    :release_date => '13-Aug-2021'}
+    :release_date => '13-Aug-2021'}, 
+  {
+    :title => 'A Bright Summer Day', :rating => 'NR',
+    :release_date => '27-Oct-1991'
+  }, 
+  {
+    :title => 'The Irishman', :rating => 'R',
+    :release_date => '27-Nov-2019'
+  },
+  {
+    :title => 'The Farewell', :rating => 'PG',
+    :release_date => '12-Jul-2019'
+  },
+  {
+    :title => 'The Florida Project', :rating => 'R',
+    :release_date => '10-Nov-2017'
+  },
+  {
+    :title => 'The Shape of Water', :rating => 'R',
+    :release_date => '22-Dec-2017'
+  },
 ]
 
 more_movies.each do |movie|
-  Movie.create!(movie)
+  Movie.find_or_create_by(title: movie_data[:title]) do |movie|
+    movie.release_date = movie_data[:release_date]
+    movie.director = movie_data[:director]
+    movie.rating = movie_data[:rating]
+  end
 end
