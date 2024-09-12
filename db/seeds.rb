@@ -41,10 +41,9 @@ more_movies = [
   },
 ]
 
-more_movies.each do |movie|
+more_movies.each do |movie_data|
   Movie.find_or_create_by(title: movie_data[:title]) do |movie|
     movie.release_date = movie_data[:release_date]
-    movie.director = movie_data[:director]
     movie.rating = movie_data[:rating]
   end
 end
