@@ -15,30 +15,70 @@
 
 <%= link_to "New movie", new_movie_path %> -->
 
-<h1>All Movies</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Release Date</th>
-    </tr>
-  </thead>
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
 
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.release_date.strftime("%B %d, %Y") %></td>
-      </tr>
-    <% end %>
-  </tbody>
+        thead {
+            background-color: #f2f2f2;
+        }
 
-  <tfoot>
-    <tr>
-      <td colspan="3">Total Movies: <%= @movies.count %></td>
-    </tr>
-  </tfoot>
+        tfoot {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+    </style>
+    <title>Movie Table</title>
+</head>
+<body>
+
+<h2>Movie List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Release Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The Irishman</td>
+            <td>R</td>
+            <td>27-Nov-2019</td>
+        </tr>
+        <tr>
+            <td>Parasite</td>
+            <td>R</td>
+            <td>30-May-2019</td>
+        </tr>
+        <tr>
+            <td>Nomadland</td>
+            <td>R</td>
+            <td>19-Feb-2021</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total Movies: 3</td>
+        </tr>
+    </tfoot>
 </table>
+
+</body>
+</html>
