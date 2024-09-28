@@ -60,11 +60,13 @@ class MoviesController < ApplicationController
 
   # sorting functionality
   def set_sorting
+    valid_columns = [ "title", "rating", "release_date" ]
+    valid_directions = [ "asc", "desc" ]
     # Retrieve or initialize sorting parameters
-    session[:sort_column] = params[:sort] || session[:sort_column] || "title"
-    session[:sort_direction] = params[:direction] || session[:sort_direction] || "asc"
-    @sort_column = session[:sort_column]
-    @sort_direction = session[:sort_direction]
+    session[:sort_column] =params[:sort] if valid_columns.include?(params[:sort])
+    session[:sort_direction] = params[:direction] if valid_directions.include?(params[:direction])
+    @sort_column = session[:sort_column] || "title"
+    @sort_direction = session[:sort_direction] || "asc"
   end
 
   private
