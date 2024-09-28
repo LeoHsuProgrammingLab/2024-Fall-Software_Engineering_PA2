@@ -49,9 +49,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Release Date</th>
+      <th><%= link_to 'Title', movies_path(sort: 'title', direction: determine_direction('title')) %></th>
+      <th><%= link_to 'Rating', movies_path(sort: 'rating', direction: determine_direction('rating')) %></th>
+      <th><%= link_to 'Release Date', movies_path(sort: 'release_date', direction: determine_direction('release_date')) %></th>
     </tr>
   </thead>
 

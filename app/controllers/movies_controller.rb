@@ -1,9 +1,10 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_sorting, only: :index
 
   # GET /movies or /movies.json
   def index
-    @movies = Movie.all
+    @movies = Movie.sorted_by(@sort_column, @sort_direction)
   end
 
   # GET /movies/1 or /movies/1.json
@@ -55,6 +56,15 @@ class MoviesController < ApplicationController
       format.html { redirect_to movies_url, notice: "Movie was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # sorting functionality
+  def set_sorting
+    # Retrieve or initialize sorting parameters
+    session[:sort_column] = params[:sort] || session[:sort_column] || "title"
+    session[:sort_direction] = params[:direction] || session[:sort_direction] || "asc"
+    @sort_column = session[:sort_column]
+    @sort_direction = session[:sort_direction]
   end
 
   private
