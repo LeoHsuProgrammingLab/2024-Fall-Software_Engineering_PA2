@@ -12,5 +12,5 @@ Things you may want to cover:
 * How to run the test suite
 * Services (job queues, cache servers, search engines, etc.)
 * Deployment instructions
-* [Website (Heroku)](`https://pa2swe-38205038a61d.herokuapp.com/movies`)
-  * `https://pa2swe-38205038a61d.herokuapp.com/movies`
+* [Website](https://pa2swe-38205038a61d.herokuapp.com/movies)
+  * URL:  `https://pa2swe-38205038a61d.herokuapp.com/movies`
