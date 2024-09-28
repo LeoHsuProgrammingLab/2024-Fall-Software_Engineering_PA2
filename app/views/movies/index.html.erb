@@ -56,10 +56,10 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <%= link_to movie.title, movie %>
+        <td><%= link_to movie.title, movie %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.release_date.strftime("%B %d, %Y") %></td>
-        <td><%= movie.description%>
+        <td><%= movie.description%></td>
       </tr>
     <% end %>
   </tbody>
