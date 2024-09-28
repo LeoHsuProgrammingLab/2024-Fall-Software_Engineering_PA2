@@ -32,10 +32,15 @@
 <table class="table">
   <thead>
     <tr>
-      <th><%= link_to 'Title', movies_path(sort: 'title', direction: determine_direction('title')) %></th>
+      <% ['title', 'rating', 'description', 'release_date'].each do |column| %>
+      <th class="table-header <%= 'sorted' if params[:sort] == column %> <%= 'asc' if params[:direction] == 'asc' && params[:sort] == column %> <%= 'desc' if params[:direction] == 'desc' && params[:sort] == column %>">
+        <%= link_to column.titleize, movies_path(sort: column, direction: params[:sort] == column && params[:direction] == 'asc' ? 'desc' : 'asc') %>
+      </th>
+      <% end %>
+      <!-- <th><%= link_to 'Title', movies_path(sort: 'title', direction: determine_direction('title')) %></th>
       <th><%= link_to 'Rating', movies_path(sort: 'rating', direction: determine_direction('rating')) %></th>
       <th><%= link_to 'Release Date', movies_path(sort: 'release_date', direction: determine_direction('release_date')) %></th>
-      <th><%= link_to 'Description', movies_path(sort: 'description', direction: determine_direction('description')) %></th>
+      <th><%= link_to 'Description', movies_path(sort: 'description', direction: determine_direction('description')) %></th> -->
     </tr>
   </thead>
 

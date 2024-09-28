@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ /* app/assets/stylesheets/application.css */
+
+.asc{
+    background-color: #95b2f0; 
+}
+
+.desc{
+    background-color: #3ecf40;
+}
+  
+.asc::after {
+    content: " (↑)"; /* Up arrow for ascending order */
+}
+  
+.desc::after {
+    content: " (↓)"; /* Down arrow for descending order */
+}
+
+.table-header {
+    width: 200px; /* Set your desired width */
+}
