@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<!-- <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
 
@@ -11,9 +11,7 @@
       <%= link_to "Show this movie", movie %>
     </p>
   <% end %>
-</div>
-
-<%= link_to "New movie", new_movie_path %>
+</div> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,9 +56,10 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.title %></td>
+        <%= link_to movie.title, movie %>
         <td><%= movie.rating %></td>
         <td><%= movie.release_date.strftime("%B %d, %Y") %></td>
+        <td><%= movie.description%>
       </tr>
     <% end %>
   </tbody>
@@ -68,6 +67,7 @@
   <tfoot>
     <tr>
       <td colspan="3">Total Movies: <%= @movies.count %></td>
+      <%= link_to "New movie", new_movie_path %>
     </tr>
   </tfoot>
 </table>
